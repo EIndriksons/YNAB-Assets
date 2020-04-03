@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div class="d-flex flex-row">
+        <div class="p-2">
+            <a class="btn btn-dark" href="/ynab" role="button">Transactions</a>
+        </div>
+        <div class="p-2">
+            <a class="btn btn-dark" href="/ynab_assets" role="button">Assets</a>
+        </div>
+        <div class="ml-auto p-2">
+            <a class="btn btn-info" href="/ynab_reload"><span class="glyphicon glyphicon-refresh"></span>Reload Data</a>
+        </div>
+    </div>
+    {% block ynab %}{% endblock %}
+{% endblock %}

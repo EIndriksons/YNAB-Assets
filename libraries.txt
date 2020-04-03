@@ -1,0 +1,6 @@
+flask
+sqlite3
+
+# Change the following libraries
+pip3 uninstall Werkzeug
+pip3 install Werkzeug==0.16.0

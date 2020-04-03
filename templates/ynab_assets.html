@@ -1,0 +1,29 @@
+{% extends "layout_ynab.html" %}
+
+{% block ynab %}
+    <div class="d-flex flex-row">
+        <div class="p-2">
+            <button class="btn btn-dark" type="button" id="toggle">New Asset</button>
+        </div>
+    </div>
+    <div class="bg-dark" id="input" style="display: none;">
+        <form action="/ynab_assets_add" method="post">
+            <div class="d-flex flex-row">
+                <div class="p-2">
+                    <input class="form-control" name="name" placeholder="Asset Name" type="text">
+                </div>
+                <div class="ml-auto p-2">
+                    <button class="btn btn-success" type="submit">Add Asset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#toggle').click(function(){
+                $('#input').toggle();
+            });
+        });
+    </script>
+{% endblock %}

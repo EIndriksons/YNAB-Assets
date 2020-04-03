@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div class="logreg mt-5">
+        <form action="/login" method="post">
+            <h3 class="mb-4">Log In</h3>
+            <div class="form-group">
+                <input class="form-control" autocomplete="off" autofocus name="username" placeholder="Username" type="text">
+            </div>
+            <div class="form-group">
+                <input class="form-control" autocomplete="off" name="password" placeholder="Password" type="password">
+            </div>
+            <button class="btn btn-info" type="submit">Log In</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "layout_ynab.html" %}
+
+{% block ynab %}
+    <table class="table table-hover mt-2">
+        <thead class="">
+            <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Memo</th>
+                <th>Asset ID</th>
+                <th>Type</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction[0] }}</td>
+                    <td>{{ transaction[1] }}</td>
+                    <td>{{ transaction[2] }}</td>
+                    <td>{{ transaction[3] }}</td>
+                    <td>
+                        {% if transaction[4] == "new" %}
+                            <span class="badge badge-pill badge-success">New</span>
+                        {% elif transaction[4] == "depreciation" %}
+                            <span class="badge badge-pill badge-danger">Depreciation</span>
+                        {% elif transaction[4] == "sold" %}
+                            <span class="badge badge-pill badge-warning">Sold</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if transaction[5] >= 0 %}
+                            <p class="text-success">{{ transaction[5] | eur }}</p>
+                        {% else %}
+                            <p class="text-danger">{{ transaction[5] | eur }}</p>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
